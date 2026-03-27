@@ -15,17 +15,13 @@ public class TransactionLog {
     // 거래 발생 시각
     private final LocalDateTime timestamp;
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); //영석이 만듦
-
     // 로그 객체 생성 시 현재 시각을 함께 저장
     public TransactionLog(String accountNo, String transactionType, long amount, long balanceAfter) {
         this.accountNo = accountNo;
         this.transactionType = transactionType;
         this.amount = amount;
         this.balanceAfter = balanceAfter;
-
-        this.timestamp = LocalDateTime.parse(LocalDateTime.now().format(formatter), formatter); //영석이 만듦
-        //오류 날지 안날지 모름 테스트해봐야됌
+        this.timestamp = LocalDateTime.now();
     }
 
     public String getAccountNo() {
